@@ -1,33 +1,32 @@
 {
-  "name": "hide-node-modules",
-  "displayName": "Hide Node Modules",
-  "description": "Show/Hide Node Modules within the Explorer view",
+  "name": "hide-config",
+  "displayName": "Hide Config Files",
+  "description": "Show/Hide Config Files within the Explorer view",
   "icon": "images/hideNodeModules128.png",
   "license": "MIT",
   "keywords": [
-    "node",
-    "node modules",
-    "node_modules",
-    "explorer",
-    "show",
     "hide",
-    "files"
+    "config",
+    "files",
+    "show",
+    "node_modules",
+    "explorer"
   ],
   "galleryBanner": {
     "color": "#000000",
     "theme": "dark"
   },
-  "version": "0.0.4",
-  "publisher": "chrisbibby",
+  "version": "0.0.1",
+  "publisher": "lisrec",
   "author": {
-    "name": "Chris Bibby"
+    "name": "Lisrec"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ChrisBibby/vscode_hide-node-modules.git"
+    "url": "https://github.com/lisrec/vscode_hide-config.git"
   },
-  "homepage": "https://github.com/ChrisBibby/vscode_hide-node-modules",
-  "bugs": "https://github.com/ChrisBibby/vscode_hide-node-modules/issues",
+  "homepage": "https://github.com/lisrec/vscode_hide-config",
+  "bugs": "https://github.com/lisrec/vscode_hide-config/issues",
   "engines": {
     "vscode": "^1.53.0"
   },
@@ -40,7 +39,7 @@
   "main": "./dist/extension.js",
   "contributes": {
     "configuration": {
-      "title": "Hide Node Modules",
+      "title": "Hide Config Files",
       "properties": {
         "hide-node-modules.enable": {
           "type": "boolean",
@@ -53,7 +52,7 @@
     "commands": [
       {
         "command": "hide-node-modules.hide",
-        "title": "Show/Hide Node Modules",
+        "title": "Show/Hide Config Files",
         "when": "hide-node-modules:containsPackageJson"
       }
     ],
