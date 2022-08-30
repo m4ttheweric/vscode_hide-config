@@ -2,7 +2,7 @@
   "name": "hide-config",
   "displayName": "Hide Config Files",
   "description": "Show/Hide Config Files within the Explorer view",
-  "icon": "images/hideNodeModules128.png",
+  "icon": "images/showHideConfigs.png",
   "license": "MIT",
   "keywords": [
     "hide",
@@ -41,44 +41,34 @@
     "configuration": {
       "title": "Hide Config Files",
       "properties": {
-        "hide-node-modules.enable": {
+        "hide-config.enable": {
           "type": "boolean",
           "default": false,
-          "description": "Hide node_modules when opening new projects",
+          "description": "Hide config files when opening new projects",
           "scope": "application"
         }
       }
     },
     "commands": [
       {
-        "command": "hide-node-modules.hide",
+        "command": "hide-config.hide",
         "title": "Show/Hide Config Files",
-        "when": "hide-node-modules:containsPackageJson"
+        "when": "hide-config:containsPackageJson"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "hide-node-modules.hide",
-          "group": "1_copypath@999",
-          "when": "hide-node-modules:containsPackageJson"
+          "command": "hide-config.hide",
+          "group": "1_hide-config@1",
+          "when": "hide-config:containsPackageJson"
         }
       ]
-    },
-    "keybindings": [
-      {
-        "command": "hide-node-modules.hide",
-        "key": "ctrl+alt+n",
-        "mac": "cmd+alt+n",
-        "when": "hide-node-modules:containsPackageJson"
-      }
-    ]
+    }
   },
   "scripts": {
-    "commit": "cz",
     "deploy": "vsce publish",
     "lint": "eslint src --ext ts --max-warnings=0",
-    "fix:prettier": "prettier \"**/*.ts\" --write",
     "package": "vsce package",
     "vscode:prepublish": "npm run lint && webpack --mode production",
     "webpack": "webpack --mode production",
@@ -89,8 +79,6 @@
     "@types/vscode": "^1.53.0",
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
-    "commitizen": "^4.2.3",
-    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
     "prettier": "^2.2.1",
@@ -100,10 +88,5 @@
     "webpack": "^5.21.2",
     "webpack-cli": "^4.5.0"
   },
-  "dependencies": {},
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  }
+  "dependencies": {}
 }
