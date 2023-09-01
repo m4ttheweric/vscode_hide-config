@@ -46,6 +46,12 @@
           "default": false,
           "description": "Hide config files when opening new projects",
           "scope": "application"
+        },
+        "hide-config.additionalFiles": {
+          "type": "array",
+          "default": [],
+          "description": "Additional file patterns to hide",
+          "scope": "window"
         }
       }
     },

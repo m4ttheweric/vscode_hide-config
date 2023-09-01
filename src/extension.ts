@@ -7,6 +7,7 @@ interface Excluded {
 let statusBarItem: vscode.StatusBarItem;
 
 const AUTO_HIDE_SETTING = 'hide-config.enable';
+const ADDITIONAL_FILES_SETTIGNS = 'hide-config.additionalFiles';
 const EXCLUDE = 'files.exclude';
 const FILE_FILE_PATTERN = '**package*.json';
 const FILE_WATCHER_PATTERN = '**/package*.json';
@@ -73,8 +74,14 @@ const enableCommand = async () =>
 function hideConfigFiles(hide: boolean): void {
   const config = vscode.workspace.getConfiguration();
   const excluded: Excluded = config.get(EXCLUDE, {});
-  FILES_TO_HIDE.forEach((fileName) => (excluded[fileName] = hide));
+  const additionalFiles = getAdditionalFilesSetting();
+
+  [...FILES_TO_HIDE, ...additionalFiles].forEach(
+    (fileName) => (excluded[fileName] = hide)
+  );
+
   config.update(EXCLUDE, excluded);
+
   updateStatusBar(hide);
 }
 
@@ -98,6 +105,9 @@ function areConfigFilesVisible(): boolean {
 
 function getAutoHideSetting(): boolean {
   return vscode.workspace.getConfiguration().get(AUTO_HIDE_SETTING, false);
+}
+function getAdditionalFilesSetting(): string[] {
+  return vscode.workspace.getConfiguration().get(ADDITIONAL_FILES_SETTIGNS, []);
 }
 
 function previouslySet(): boolean {
