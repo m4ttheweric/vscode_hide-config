@@ -16,17 +16,17 @@
     "color": "#000000",
     "theme": "dark"
   },
-  "version": "0.0.1",
-  "publisher": "lisrec",
+  "version": "0.0.2",
+  "publisher": "m4ttheweric",
   "author": {
-    "name": "Lisrec"
+    "name": "m4ttheweric"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lisrec/vscode_hide-config.git"
+    "url": "https://github.com/m4ttheweric/vscode_hide-config.git"
   },
-  "homepage": "https://github.com/lisrec/vscode_hide-config",
-  "bugs": "https://github.com/lisrec/vscode_hide-config/issues",
+  "homepage": "https://github.com/m4ttheweric/vscode_hide-config",
+  "bugs": "https://github.com/m4ttheweric/vscode_hide-config/issues",
   "engines": {
     "vscode": "^1.53.0"
   },
